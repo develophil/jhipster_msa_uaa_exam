@@ -12,12 +12,6 @@ node {
         archiveArtifacts artifacts: '**/build/libs/*.war', fingerprint: true
     }
 
-    stage('quality analysis') {
-        withSonarQubeEnv('Sonar') {
-            sh "./gradlew sonarqube --no-daemon"
-        }
-    }
-
     def dockerImage
     stage('build docker') {
         sh "cp -R src/main/docker build/"
