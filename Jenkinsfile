@@ -1,9 +1,6 @@
 #!/usr/bin/env groovy
 
 node {
-    stage('checkout') {
-        checkout scm
-    }
     
     stage('clean') {
         sh "chmod +x gradlew"
